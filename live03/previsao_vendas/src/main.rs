@@ -3,6 +3,7 @@ struct RegistroVenda {
     valor: f64,
 }
 
+
 fn calcular_media (valores: &[f64]) -> f64 {
 
     let soma: f64 = valores.iter().sum::<f64>();
@@ -55,6 +56,45 @@ fn main() {
     println!("Inclinação: {:.2}, Intercepto: {:.2}", inclinacao, intercepto);
     println!("Previsão para mês 6: {:.2}", previsao);
 
+}
 
+#[cfg(test)]
 
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_calcular_media() {
+        let valores = vec![1.0, 2.0, 3.0, 4.0, 5.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 3.0)
+    }
+
+    #[test]
+    fn test_calcular_media_iguais() {
+        let valores = vec![9.0, 9.0, 9.0, 9.0, 9.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 9.0)
+    }
+
+    #[test]
+    fn test_calcular_media_unico_valor() {
+        let valores = vec![5.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 5.0)
+    }
+
+    #[test]
+    fn test_calcular_media_negativos() {
+        let valores = vec![-2.0, -4.0, -6.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, -4.0)
+    }
+
+    #[test]
+    fn test_calcular_media_negativos_positivos() {
+        let valores = vec![-2.0, 4.0];
+        let resultado = calcular_media(&valores);
+        assert_eq!(resultado, 1.0)
+    }
 }
