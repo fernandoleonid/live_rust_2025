@@ -8,6 +8,9 @@ Um programa em Rust que usa regressão linear simples para prever vendas com bas
 - Prevê vendas futuras.
 - Analisa tendências e compara com metas.
 
+## Formulas
+![](./formula.jpeg) 
+
 ## Como Usar
 1. Clone o repositório:
    ```bash
