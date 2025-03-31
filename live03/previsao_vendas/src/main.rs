@@ -3,7 +3,6 @@ struct RegistroVenda {
     valor: f64,
 }
 
-
 fn calcular_media (valores: &[f64]) -> f64 {
 
     let soma: f64 = valores.iter().sum::<f64>();
